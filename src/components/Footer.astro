@@ -1,0 +1,66 @@
+---
+import TwSVG from '../assets/tw.svg'
+import GHSVG from '../assets/gh.svg'
+---
+<footer>
+    <div class="foot">
+        <div class="social-icons">
+            <a href="#" class="tw-icon">
+                <img src={TwSVG.src} fetchpriority="high" alt="twitter icon">
+            </a>
+            <a href="#" class="gh-icon">
+                <img src={GHSVG.src} fetchpriority="high" alt="github icon">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        display: flex;
+        height: 5rem;
+        align-items: center;
+        padding: .5rem 0;
+    }
+
+    .foot {
+        border-radius: .4rem;
+        width: 96%;
+        height: 70%;
+        display: grid;
+        place-items: center;
+        margin: 0 auto;
+        background-color: #F2F2F2;
+        outline: var(--primary-color) 2px solid;
+    }
+
+	.social-icons a {
+		height: 100%;
+		display: grid;
+		place-items: center;
+		place-content: center;
+	}
+
+
+	.social-icons a img {
+		width: auto;
+		height: 60%;
+		color: white;
+		/* filter: grayscale(100%) brightness(0%) invert(1); */
+	}
+
+	.social-icons {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		height: 2rem;
+		gap: .7rem;
+	}
+
+	@media (max-width: 700px) {
+		footer {
+			width: 100%;
+		}
+	}
+
+</style>

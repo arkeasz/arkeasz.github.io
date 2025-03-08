@@ -1,22 +1,61 @@
+---
+import Head from '../meta/Head.astro'
+const { ...props } = Astro.props
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+---
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<Head />
 	</head>
 	<body>
-		<slot />
+		<Header />
+			<slot />
+		<Footer />
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+html,
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+  background-color: var(--background-color);
+  display: grid;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background-color: #fffa;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(40px);
+  }
+
+  &::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 30rem;
+    height: 30rem;
+    position: absolute;
+    background: radial-gradient(circle,
+      rgba(255, 11, 141, .8) 0%,
+      rgba(255, 0, 64, 0.4) 51%,
+      rgba(255, 0, 64, 0.51) 98%
+    );
+    border-radius: 100%;
+    z-index: -1000;
+
+  }
+}
+
 </style>

@@ -1,11 +1,170 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import TwSVG from '../assets/tw.svg'
+import GHSVG from '../assets/gh.svg'
+import PreviewOne from '../components/PreviewOne.astro';
+import ZixIcon from '../assets/zix-icon.jpg'
+import AboutMe from '../components/AbouteMe.astro'
 ---
 
 <Layout>
-	<Welcome />
+	<main>
+		<section class="presentation">
+			<h1 class="title">Antonio Arias</h1>
+			<p  class="subtitle">FULLSTACK DEVELOPER</p>
+			<div class="social">
+				<a href="https://x.com/arkeazs" class="tw-icon">
+					<img src={TwSVG.src} fetchpriority="high" alt="twitter icon">
+				</a>
+				<a href="https://github.com/arkeasz" class="gh-icon">
+					<img src={GHSVG.src} fetchpriority="high" alt="github icon">
+				</a>
+			</div>
+		</section>
+		<section class="main-skills">
+			<div class="skill-separation">•</div>
+			<div class="main-skill">React</div>
+			<div class="skill-separation">•</div>
+			<div class="main-skill">Web Design</div>
+			<div class="skill-separation">•</div>
+			<div class="main-skill">Rust</div>
+			<div class="skill-separation">•</div>
+			<div class="main-skill">Javascript</div>
+			<div class="skill-separation">•</div>
+		</section>
+		<section class="projects" id="projects">
+			<h2>PROJECTS</h2>
+			<div class="works">
+				<PreviewOne
+					title="ZIX"
+					preview="https://pbs.twimg.com/media/Gk0TmTiXsAALlcw?format=png&name=small"
+					description="zix is a simple and fast alternative to the traditional Unix ls command. It lists directory contents with a focus on speed and simplicity"
+					tags="rust cli zix"
+					logo={ZixIcon.src}
+					details="./projects/d/zix"
+					page="https://github.com/zix-rs/zix"
+				/>
+				<PreviewOne
+					title="ZIX"
+					preview="https://pbs.twimg.com/media/Gk0TmTiXsAALlcw?format=png&name=small"
+					description="zix is a simple and fast alternative to the traditional Unix ls command."
+					tags="rust cli zix"
+					logo={ZixIcon.src}
+					details="./projects/d/zix"
+					page="https://github.com/zix-rs/zix"
+				/>
+			</div>
+		</section>
+		<AboutMe />
+		<section class="skills" id="skills">
+
+		</section>
+	</main>
 </Layout>
+
+<style is:global>
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.main-skills {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+		border: 1px solid #111, none;
+		cursor: default;
+		margin: 1rem 0;
+		box-shadow: 0px -1px 0px 0px #444, 0px 1px 0px 0px #444;
+		padding: 1rem 0;
+
+
+		&::selection {
+			background: none;
+		}
+
+		.main-skill {
+			font-size: .8rem;
+			height: 100%;
+			display: grid;
+			place-content: center;
+		}
+	}
+
+	.projects {
+		padding: 2rem 0;
+		width: 70%;
+	}
+
+	.works {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+		gap: 1rem;
+		place-items: center;
+		place-content: center;
+		margin: 1rem auto;
+	}
+
+
+	.presentation {
+		display: flex;
+		flex-direction: column;
+		width: calc(70% - 4rem);
+		padding: 5rem 2rem 2rem;
+		justify-content: center;
+		position: relative;
+
+		.title {
+			font-family: "Julius Sans One",sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			color: #111;
+			font-size: clamp(1rem, 10vw, 2.5rem);
+			text-align: center;
+			margin: 0;
+		}
+
+		.subtitle {
+			font-family: "Palanquin Dark", sans-serif;
+			font-weight: 400;
+			font-style: normal;
+			color: #FF0079;
+			padding: 1rem;
+			font-size: .8rem;
+			text-align: center;
+		}
+
+		.social {
+			margin: 1rem 0;
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			height: 2rem;
+			gap: .7rem;
+		}
+
+		.social a {
+			height: 100%;
+			display: grid;
+			place-items: center;
+			place-content: center;
+		}
+
+
+		.social a img {
+			width: auto;
+			height: 60%;
+		}
+	}
+
+	section h2 {
+		color: #7D1C4A;
+		font-family: "Palanquin Dark", sans-serif;
+		font-weight: 400;
+		font-style: normal;
+		padding: .5rem 0;
+		font-size: .9rem
+	}
+</style>

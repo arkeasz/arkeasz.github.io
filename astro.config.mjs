@@ -1,5 +1,11 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
-export default defineConfig({});
+import react from '@astrojs/react';
+import svelte from '@astrojs/svelte';
+
+export default defineConfig({
+  site: 'https://arkeasz.github.io',
+  base: '/',
+  integrations: [react(), svelte()]
+});

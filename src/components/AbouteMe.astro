@@ -1,0 +1,72 @@
+---
+import Avatar from '../assets/avatar.jpg'
+---
+<section class="about-me" id="about-me">
+    <h2>ABOUT ME</h2>
+    <article>
+        <figure class="avatar">
+            <img src={Avatar.src} alt="">
+        </figure>
+        <p>Hi! I'm Arki, a physics student passionate about programming and system optimization. I specialize in Rust, C, and Python, focusing on CLI tools, performance, and low-level computing.</p>
+        <div class="mark-skills">
+            <figure class="mark-skill">
+                <img src="/mysql.png" alt="js">
+            </figure>
+            <figure class="mark-skill">
+                <img src="/nodejs.png" alt="rs">
+            </figure>
+            <figure class="mark-skill">
+                <img src="/rails.png" alt="md">
+            </figure>
+            <figure class="mark-skill">
+                <img src="/react.png" alt="md">
+            </figure>
+            <figure class="mark-skill">
+                <img src="/rust.png" alt="md">
+            </figure>
+        </div>
+    </article>
+</section>
+
+<style>
+	.about-me {
+		width: 70%;
+        article {
+            display:grid;
+            grid-template-areas:
+            "content img"
+            "social img";
+            place-items: center;
+            column-gap: 2rem;
+
+            p {
+                padding: 0rem 0;
+                grid-area: content
+            }
+            .mark-skills {
+                justify-self: start;
+                align-self: start;
+                grid-area: social;
+                display: flex;
+                height: 4rem;
+
+                figure {
+                    background: #111;
+                    img {
+
+                    }
+                }
+            }
+            .avatar {
+                height: 10rem;
+                grid-area: img;
+
+                img {
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+
+</style>
