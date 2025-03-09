@@ -14,13 +14,13 @@
 header {
   display: flex;
   font-size: .7rem;
+  flex-wrap: wrap;
   font-family: "Palanquin Dark", sans-serif;
   font-weight: 400;
   font-style: normal;
   height: 5rem;
   gap: 1rem;
   width: calc(100% - 2rem);
-  padding: 0 1rem;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -74,14 +74,12 @@ header {
     width: 50%;
     min-width: 350px;
     display: flex;
-    padding: 0 1rem;
     gap: 2rem;
     justify-content: center;
     align-items: center;
     border-radius: .4rem;
 
     a {
-      padding: 0 1rem;
       text-align: center;
       text-decoration: none;
       color: #111;
@@ -93,6 +91,9 @@ header {
       }
     }
   }
+}
+@media (max-width: 650px) {
+
 }
 
 

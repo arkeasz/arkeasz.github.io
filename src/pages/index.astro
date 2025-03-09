@@ -4,7 +4,8 @@ import TwSVG from '../assets/tw.svg'
 import GHSVG from '../assets/gh.svg'
 import PreviewOne from '../components/PreviewOne.astro';
 import ZixIcon from '../assets/zix-icon.jpg'
-import AboutMe from '../components/AbouteMe.astro'
+import AboutMe from '../components/AboutMe.astro'
+import Skills from '../components/Skills.astro'
 ---
 
 <Layout>
@@ -41,24 +42,22 @@ import AboutMe from '../components/AbouteMe.astro'
 					description="zix is a simple and fast alternative to the traditional Unix ls command. It lists directory contents with a focus on speed and simplicity"
 					tags="rust cli zix"
 					logo={ZixIcon.src}
-					details="./projects/d/zix"
-					page="https://github.com/zix-rs/zix"
-				/>
-				<PreviewOne
+					details="https://github.com/zix-rs/zix"
+					page="https://zix-rs.github.io/"
+					/>
+					<PreviewOne
 					title="ZIX"
 					preview="https://pbs.twimg.com/media/Gk0TmTiXsAALlcw?format=png&name=small"
 					description="zix is a simple and fast alternative to the traditional Unix ls command."
 					tags="rust cli zix"
 					logo={ZixIcon.src}
-					details="./projects/d/zix"
-					page="https://github.com/zix-rs/zix"
+					details="https://github.com/zix-rs/zix"
+					page="https://zix-rs.github.io/"
 				/>
 			</div>
 		</section>
 		<AboutMe />
-		<section class="skills" id="skills">
-
-		</section>
+		<Skills />
 	</main>
 </Layout>
 
@@ -98,9 +97,14 @@ import AboutMe from '../components/AbouteMe.astro'
 		width: 70%;
 	}
 
+	@media (max-width: 650px) {
+		.projects {
+			width: 94%;
+		}
+	}
 	.works {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 		gap: 1rem;
 		place-items: center;
 		place-content: center;
@@ -157,6 +161,13 @@ import AboutMe from '../components/AbouteMe.astro'
 			width: auto;
 			height: 60%;
 		}
+	}
+	@media (max-width: 650px) {
+		.presentation {
+			width: 98%;
+			padding: 1rem 0;
+		}
+
 	}
 
 	section h2 {

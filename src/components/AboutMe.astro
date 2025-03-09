@@ -1,12 +1,12 @@
 ---
 import Avatar from '../assets/avatar.jpg'
 ---
-<section class="about-me" id="about-me">
+<section class="about-me" id="aboutme">
     <h2>ABOUT ME</h2>
+    <figure class="avatar">
+        <img src={Avatar.src} alt="">
+    </figure>
     <article>
-        <figure class="avatar">
-            <img src={Avatar.src} alt="">
-        </figure>
         <p>Hi! I'm Arki, a physics student passionate about programming and system optimization. I specialize in Rust, C, and Python, focusing on CLI tools, performance, and low-level computing.</p>
         <div class="mark-skills">
             <figure class="mark-skill">
@@ -29,44 +29,66 @@ import Avatar from '../assets/avatar.jpg'
 </section>
 
 <style>
+
 	.about-me {
 		width: 70%;
-        article {
-            display:grid;
-            grid-template-areas:
-            "content img"
-            "social img";
-            place-items: center;
-            column-gap: 2rem;
+        display:grid;
+        grid-template-areas:
+        "title img"
+        "content img"
+        "content img";
+        place-items: center;
+        gap: 2rem;
 
-            p {
-                padding: 0rem 0;
-                grid-area: content
-            }
+        h2 {
+            justify-self: start;
+        }
+
+        article {
+            width: 100%;
+            grid-area: content;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-direction: column;
+
             .mark-skills {
                 justify-self: start;
                 align-self: start;
-                grid-area: social;
                 display: flex;
-                height: 4rem;
+                height: 2rem;
+                gap: .5rem;
 
                 figure {
-                    background: #111;
-                    img {
+                    height: 45%;
 
+                    img {
+                        height: 100%;
+                        width: auto;
+                        object-fit: contain;
                     }
                 }
             }
-            .avatar {
-                height: 10rem;
-                grid-area: img;
+        }
+        .avatar {
+            height: 10rem;
+            grid-area: img;
+            box-shadow: 0px 0px 12rem .0 rgba(255, 0, 98, 0.667);
 
-                img {
-                    height: 100%;
-                    object-fit: contain;
-                }
+            img {
+                height: 100%;
+                object-fit: contain;
             }
         }
     }
 
+    @media (max-width: 650px) {
+		.about-me {
+            grid-template-areas:
+            "title title"
+            "img img"
+            "content content";
+			width: 94%;
+		}
+	}
 </style>

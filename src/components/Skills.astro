@@ -1,0 +1,51 @@
+
+<section class="skills" id="skills">
+    <h2>
+        SKILLS
+    </h2>
+    <div class="skills-container">
+        <div class="skill">Javascript</div>
+        <div class="skill">React</div>
+        <div class="skill">Rust</div>
+        <div class="skill">Vue</div>
+        <div class="skill">Ruby on Rails</div>
+        <div class="skill">Tauri</div>
+        <div class="skill">Redis</div>
+        <div class="skill">Next</div>
+        <div class="skill">NodeJs</div>
+    </div>
+</section>
+
+<style>
+    .skills {
+		padding: 2rem 0;
+		width: 70%;
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            place-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+
+            .skill {
+                outline: var(--secondary-color) 2px solid;
+                font-family: "Krub", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                width: 100%;
+                font-size: .9rem;
+                padding: 1rem 0;
+                display: grid;
+                place-content: center;
+            }
+        }
+    }
+
+    @media (max-width: 650px) {
+        .skills {
+            width: 95%;
+        }
+    }
+
+</style>
