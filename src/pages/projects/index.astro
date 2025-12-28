@@ -3,6 +3,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import AllProjects from '../../components/AllProjects.vue'
+import Initial from '../../components/Initial.astro';
 ---
 
 <!doctype html>
@@ -13,9 +14,7 @@ import AllProjects from '../../components/AllProjects.vue'
 	<body>
 		<Header />
 		<main>
-			<section class="initial">
-				arkirus v1.0
-			</section>
+			<Initial />
             <AllProjects client:only />
             <section class="end">
 				  © 2025 arkirus · all rights reserved

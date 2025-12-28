@@ -1,5 +1,6 @@
 <script setup>
 import Monsho from '../assets/monsho.gif'
+import TableProject from './TableProject.vue';
 </script>
 
 <template>
@@ -8,13 +9,18 @@ import Monsho from '../assets/monsho.gif'
     <figcaption>monsho</figcaption>
   </figure>
 
-  <ul class="info">
-    <li><b>type:</b><p>project</p></li>
-    <li><b>description:</b><p>offline-first personal app focused on local data persistence</p></li>
-    <li><b>stack:</b><p>JavaScript, IndexedDB, Web APIs</p></li>
-    <li><b>focus:</b><p> offline-first architecture, local persistence, client-side reliability</p></li>
-  </ul>
-
+  <TableProject 
+    type="project"
+    description="offline-first personal app focused on local data persistence"
+    stack="JavaScript, IndexedDB, Web APIs"
+    focus="offline-first architecture, local persistence, client-side reliability"
+    :links="[
+        {
+            name: 'mmm...',
+            url: '#'
+        },
+    ]"
+  />
 </template>
 
 <style>

@@ -1,11 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Didact+Gothic&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 body {
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
+	gap: 0;
 	display: grid;
-	grid-template-columns: 80vw 20vw;
 	grid-template-areas: "main header" "footer header";
+	grid-template-columns: 80vw 20vw;
+	font-family: 'Courier New', Courier, monospace;
+	font-family: "Courier Prime", monospace;
+	font-weight: 400;
+	font-style: normal;
+	min-height: 100vh;
+}
+
+
+@media screen and (max-width: 990px) {
+	body {
+		grid-template-columns: 100vw 5vw;
+		grid-template-areas: "main header" "footer header";
+	}
 }
 
 
@@ -24,6 +39,8 @@ header {
 	height: 100vh;
 	overflow-x: hidden;
 }
+
+
 
 
 .initial {

@@ -1,5 +1,6 @@
 <script setup>
-    import { onMounted, ref } from 'vue';
+    import { useTemplateRef, onMounted, ref } from 'vue';
+    
     import Archive from './Archive.vue'
     import Monsho from './Monsho.vue'
     import Mano from './Mano.vue'
@@ -7,11 +8,22 @@
     import Argham from './Argham.vue';
     import Bingou from './Bingou.vue';
 
+    const nav = useTemplateRef("nav");
+    const content = useTemplateRef("content");
     const pro = ref(null)
 
     onMounted(() => {
         pro.value = window.location.hash || null
     })
+
+    const exist = () => {
+        if (nav.value) {
+            nav.value.classList.toggle("exist");
+        }
+        if (content.value) {
+            content.value.classList.toggle("exist");
+        }
+    }
 
     window.addEventListener('hashchange', () => {
         pro.value = window.location.hash
@@ -20,14 +32,15 @@
 
 <template>
     <section class="all-projects">
-        <ul class="bardirections">
+        <ul ref="nav" class="bardirections exist">
             <a @click="pro = '#monsho'" href="#monsho"><Archive /> monsho</a>
             <a @click="pro = '#mano'" href="#mano"><Archive /> mano</a>
             <a @click="pro = '#zix'" href="#zix"><Archive /> zix</a>
             <a @click="pro = '#argham'" href="#argham"><Archive /> argham</a>
             <a @click="pro = '#bingou'" href="#bingou"><Archive /> bingou</a>
         </ul>
-        <div class="content">
+        <a class="bardirections-opener" @click="exist()"><</a>
+        <div ref="content" class="content">
             <div v-show="pro === '#monsho'">
                 <Monsho />
             </div>
@@ -78,6 +91,15 @@
         overflow-y: auto;
 		background-color: #d8d0cd;
         border-right: .1rem solid #111;
+        display: none;
+    }
+
+    .bardirections.exist {
+        display: block;
+    }
+
+    .content.exist {
+        width: calc(100% - 0.2rem);
     }
 
     .bardirections a {
@@ -92,6 +114,27 @@
         border-bottom: .1rem solid #111;
         &:hover {
       		background-color: #e0d6b4;
+        }
+    }
+
+
+    .bardirections-opener {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        background-color: #4a4949;
+        color: #eee;
+        padding: 0 .1rem;
+        cursor: pointer;
+        position: relative;
+        z-index: 4;
+
+        &:hover {
+            background-color: #4a4949ee;
+        }
+
+        &::selection {
+            background: transparent;
         }
     }
 
@@ -118,5 +161,22 @@
         padding: 3rem 0;
         color: #676767;
         text-align: center;
+    }
+
+    
+    @media screen and (max-width: 680px) {
+        .bardirections {
+            position: absolute;
+            z-index: 1;
+            width: 10rem
+        }
+
+        .content {
+            width: calc(100% - 0.2rem) !important;
+        }
+
+        .content.exist {
+            width: calc(100%-0.2rem);
+        }
     }
 </style>

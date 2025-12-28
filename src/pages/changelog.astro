@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import v0_0 from '../assets/v0_0.gif'
 import Arkirus from '../assets/arkirus.gif'
+import Initial from '../components/Initial.astro';
 ---
 
 <!doctype html>
@@ -14,9 +15,7 @@ import Arkirus from '../assets/arkirus.gif'
 	<body>
 		<Header />
 		<main>
-			<section class="initial">
-				arkirus v1.0
-			</section>
+			<Initial />
 			<section class="changelog">
 				<h3>
 					CHANGELOG
@@ -85,6 +84,7 @@ import Arkirus from '../assets/arkirus.gif'
 		
 		img {
 			width: 50%;
+			outline: .1rem solid #111;
 		}
 	}
 

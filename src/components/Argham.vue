@@ -1,5 +1,6 @@
 <script setup>
 import Argham from '../assets/argham.png'
+import TableProject from './TableProject.vue';
 </script>
 
 <template>
@@ -8,14 +9,18 @@ import Argham from '../assets/argham.png'
     <figcaption>argham</figcaption>
   </figure>
 
-  <ul class="info">
-    <li><b>type:</b><p>library</p></li>
-    <li><b>description:</b><p>symbolic math and expression evaluation library inspired by sympy</p></li>
-    <li><b>stack:</b><p>Fortran</p></li>
-    <li><b>focus:</b><p>expression parsing, symbolic computation, numerical foundation</p></li>
-    <li><b>links:</b><p class="links"><a href="https://github.com/arkeasz/argham">Github</a></p></li>
-  </ul>
-
+  <TableProject 
+    type="library"
+    description="symbolic math and expression evaluation library inspired by sympy"
+    stack="Fortran"
+    focus="expression parsing, symbolic computation, numerical foundation"
+    :links="[
+        {
+            name: 'Github',
+            url: 'https://github.com/arkeasz/argham'
+        },
+    ]"
+  />
 </template>
 
 <style>

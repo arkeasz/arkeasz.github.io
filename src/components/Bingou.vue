@@ -1,5 +1,6 @@
 <script setup>
 import Bingou from '../assets/bingou.gif'
+import TableProject from './TableProject.vue';
 </script>
 
 <template>
@@ -8,14 +9,22 @@ import Bingou from '../assets/bingou.gif'
     <figcaption>bingou</figcaption>
   </figure>
 
-  <ul class="info">
-    <li><b>type:</b><p>project</p></li>
-    <li><b>description:</b><p>bingo game built with React using a fully SVG-based interface</p></li>
-    <li><b>stack:</b><p>React, SVG</p></li>
-    <li><b>focus:</b><p>SVG-based ui, interactive</p></li>
-    <li><b>links:</b><p class="links"><a href="https://github.com/arkeasz/bingou">Github</a><a href="https://arkirus.fun/bingou">Demo</a></p></li>
-  </ul>
-
+  <TableProject 
+    type="project"
+    description="bingo game built with React using a fully SVG-based interface"
+    stack="React, SVG"
+    focus="SVG-based ui, interactive"
+    :links="[
+        {
+            name: 'Github',
+            url: 'https://github.com/arkeasz/bingou'
+        },
+        {
+            name: 'Demo',
+            url: 'https://arkirus.fun/bingou'
+        }
+    ]"
+  />
 </template>
 
 <style>

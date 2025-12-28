@@ -1,0 +1,133 @@
+---
+import File from '../assets/file.svg'
+import Archive from '../assets/archive.svg'
+---
+
+<script>
+    const open = document.getElementById("open")
+    const close = document.getElementById("close")
+    const mobile = document.getElementById("nav")
+
+    open?.addEventListener("click", () => {
+        if (mobile) mobile.style.right = "0"
+    })
+
+    close?.addEventListener("click", () => {
+        if (mobile) mobile.style.right = "100%";
+    })
+</script>
+
+<section class="initial desktop">
+    arkirus v1.0
+</section>
+
+<section class="initial mobile">
+    <h1>arkirus v1.0</h1>
+    <button id="open">
+        <File />
+    </button>
+    <div id="nav" class="nav mobile">
+            <a id="close" class="close principal"> <Archive /> close.bin</a>
+            <a class="principal" href="/"><File/>home/</a>
+            <a class="secondary" href="/#neofetch"><Archive/>neofetch</a>
+            <a class="secondary" href="/#about"><Archive/>whoami</a>
+            <a class="principal" href="/#"><File/>projects/</a>
+            <a class="secondary" href="/#projects"><Archive/>featured.txt</a>
+            <a class="secondary" href="/projects"><File/>all</a>
+            <!-- <a class="principal" href="/blog"><File/>blog</a> -->
+            <a class="principal" href="/changelog"><File/>changelog</a>
+    </div>
+</section>
+
+
+<style scoped>
+
+    .mobile {
+        display: none
+    }
+
+    h1 {
+        all: unset;
+        width: 90%;
+    }
+
+    button {
+        all: unset;
+        height: 1rem;
+        width: 2rem;
+        cursor: pointer;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    @media screen and (max-width: 990px) {
+        .desktop {
+            display: none;
+        }
+
+        .mobile {
+            display: flex;
+        }
+
+    }
+
+    .nav.mobile {
+		position: fixed;
+		top: 0;
+		height: 100%;
+		border-left: .1rem solid #111;
+		flex-direction: column;
+        /* align-items: center;*/
+        justify-content: flex-start; 
+        width: 100%;
+		background-color: #d8d0cd;
+        display: none;
+        padding: 0;
+	}
+
+    .list {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 990px) {
+        .nav.mobile {
+    		display: flex;
+            width: 14rem;
+            right: 100%;
+            z-index: 2;
+            height: 100%;
+            padding: 0;
+        }
+    }
+
+	a {
+        cursor: pointer;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		color: #4a4949;
+		border-bottom: .1rem solid #111;
+		gap: .6rem;
+
+		&:hover {
+      		background-color: #e0d6b4;
+			color: #353434;
+		}
+		
+		svg {
+			width: 1.2rem;
+		}
+	}
+			
+	.principal {
+		justify-content: flex-start;
+		padding: 1.2rem 1rem;
+	}
+
+	.secondary {
+		padding: .5rem 2rem ;
+	}
+</style>
