@@ -1,0 +1,176 @@
+<section id="projects">
+    <h2><b>cat</b> projects/featured.txt</h2>
+    <div class="featured">
+        <article class="one">
+            <h4>zx</h4>
+            <p class="description">
+                Minimal CLI inspired by the unix phylosophy.
+
+                Built to explore simplicity, composability, and developer experience in command-line tools.
+            </p>
+
+            <ul class="table">
+                <li><b>Stack</b><p>Rust</p></li>
+                <li><b>Focus</b><p>CLI design, Unix phylosophy, developer experience</p></li>
+                <li>
+                    <b>Links</b>
+                    <p class="links">
+                        <a href="https://github.com/zix-rs/zix">Github</a>
+                        <a href="https://zix-rs.github.io/">Homepage</a>
+                    </p>
+                </li>
+            </ul>
+
+        </article>
+        <article class="two">
+            <h4>Mano</h4>
+            <p class="description">
+                Numerical computation project combining Fortran and Rust.
+
+                Created to explore interoperability between low-level languages and performance-oriented system design.
+            </p>
+
+            <ul class="table">
+                <li><b>Stack</b><p>Rust, Fortran, JavaScript, Tera templates</p></li>
+                <li><b>Focus</b><p>Interoperability, performance, systems programming</p></li>
+                <li>
+                    <b>Links</b>
+                    <p class="links">
+                        <a href="https://github.com/arkeasz/meta">Github</a>
+                    </p>
+                </li>
+            </ul>
+        </article>
+        <article class="three">
+            <h4>Monsho</h4>
+            <p class="description">
+                Inventory and sales management app for a retail client (Monitos Shoes).
+                Built to manage products, sales, and local data reliably, with an offline-first approach tailored for small businesses.
+            </p>
+
+            <ul class="table">
+                <li><b>Stack</b><p>JavaScript, Web APIs, IndexedDB</p></li>
+                <li><b>Focus</b><p>Inventory management, offline-first, client-focused solutions</p></li>
+                <li>
+                    <b>Links</b>
+                    <p class="links">
+                        <a href="/projects#monsho">Preview</a>
+                    </p>
+                </li>
+            </ul>
+        </article>
+    </div>
+</section>
+
+<style>
+    #projects {
+        margin: 0 auto;
+        width: 90%;
+    }
+
+
+
+    .featured article {
+        width: calc(100% - 4rem);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: .5rem;
+    }
+
+    .one {
+		background-color: #d8d0cd;
+        color: #353434;
+        outline: .1rem solid #353434;
+        li {
+            border: .1rem solid #353434;
+        }
+        .table li b {
+            border-left: .1rem solid #353434;
+            border-right: .1rem solid #353434;
+        }
+    }
+    
+    .two {
+        background-color: #e0d6b4;
+        color: #353434;
+        outline: .1rem solid #353434;
+        li {
+            border: .1rem solid #353434;
+        }
+
+        .table li b {
+            border-left: .1rem solid #353434;
+            border-right: .1rem solid #353434;
+        }
+    }
+    
+    .three {
+        color: #e0d6b4;
+        background-color: #353434;
+        outline: .1rem solid #e0d6b4;
+        li {
+            border: .1rem solid #e0d6b4;
+        }
+        .table li b {
+            border-left: .1rem solid #eee;
+            border-right: .1rem solid #eee;
+        }
+
+        a {
+            color: #eee
+        }
+    }
+
+    .one::before {
+        content: "♦ ls zx";
+    }
+
+    .two::before {
+        content: "♦ ls Mano";
+    }
+
+    .three::before {
+        content: "♦ ls Monsho";
+    }
+
+
+    .table {
+        padding: 0;
+        width: 90%;
+        margin: 1.5rem auto;
+        display: flex;
+        flex-direction: column;
+        li {
+            display: flex;
+            p {
+                display: flex;
+                align-items: center;
+            }
+
+        }
+    }
+
+    .table li b {
+        padding: 1rem;
+    }
+
+    .featured {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    h4 {
+        margin: 1rem;
+    }
+    p {
+        margin: 0 1rem;
+    }
+
+    .links {
+        display: flex;
+        gap: 1rem;
+    }
+</style>

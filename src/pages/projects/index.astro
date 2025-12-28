@@ -1,0 +1,32 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import AllProjects from '../../components/AllProjects.vue'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="initial">
+				arkirus v1.0
+			</section>
+            <AllProjects client:only />
+            <section class="end">
+				  © 2025 arkirus · all rights reserved
+			</section>
+		</main>
+	</body>
+</html>
+
+
+<style>
+    main {
+        gap: 0rem;
+    }
+</style>

@@ -1,0 +1,263 @@
+---
+import Linux from '../assets/linux.svg'
+import { Image } from 'astro:assets';
+import avatar from '../assets/avatar.png'
+
+---
+<section class="neofetch" id="neofetch">
+
+    <div class="terminal">
+        <div class="top">
+            <div class="tabs">
+                <div class="tab">
+                    <Linux /> @arki
+                </div>
+                <button class="add_tab">
+                    +
+                </button>
+            </div>
+            <div class="options">
+                <div class="minimize">-</div>
+                <div class="maximize"><div class="square"></div></div>
+                <div class="close">x</div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="line">> neofetch</div>
+            <div class="line-out">
+                <figure class="neo-info">
+                    <Image src={avatar} alt="its me arki"/>
+                    <figcaption>
+                        <h3>antonio@arkirus</h3>
+                        <ul>
+                            <li><b>OS: </b> arkiOS</li>
+                            <li><b>Stack: </b> Rust, Javscript, Typescript</li>
+                            <li><b>Focus: </b> UI, UX, Optmizing</li>
+                            <li><b>Tools: </b> Git, VSCode, WSL</li>
+                            <li><b>Location: </b> Peru</li>
+                            <li><b>Web: </b> arkirus.fun</li>
+                        </ul>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="line">> skills</div>
+            <div class="line-out">
+                <ul class="skills-info">
+                    <li><b class="skills-info__td">Languages </b> Rust, JavaScript, TypeScript</li>
+                    <li><b class="skills-info__td">Frontend </b> React, Astro, CSS</li>
+                    <li><b class="skills-info__td">Backend </b> Axum, Express</li>
+                    <li><b class="skills-info__td">Databases </b> PostgreSQL, MongoDB</li>
+                    <li><b class="skills-info__td">Deployment </b> Vercel, Railway</li>
+                    <li><b class="skills-info__td">Tools </b> Git, VS Code, WSL</li>
+                    <li><b class="skills-info__td">Concepts </b> UI systems, Realtime, Performance, Minimalism</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+
+    .line {
+        color: #ffdbbd;
+        padding: 1rem 1rem;;
+    }
+
+    .neofetch {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .terminal {
+        margin: 0;
+        outline: 2px solid #111;
+        display: grid;
+        width: 90%;
+        grid-template-columns: 100%;
+        border-radius: .5rem;
+        overflow: hidden;
+        box-shadow: 0 0 12px 4px #aba7a7ca;
+        height: 28rem;
+    }
+
+    .tabs {
+        width: 40%;
+        display: flex;
+        align-items: center;
+    }
+
+    .tab {
+        width: 50%;
+        background-color: #111;
+        height: 98%;
+        color: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .4rem;
+        border-top-right-radius: 1.5rem;
+        font-size: 1rem;
+        background-color: #261622;
+    }
+
+    .tab svg {
+        width: 10%;
+        filter: drop-shadow(0 0 0.75rem crimson);
+    }
+
+    .tab:hover {
+        background-color: #5e3554;
+    }
+
+    .add_tab {
+        all: unset;
+        height: 98%;
+        width: 2rem;
+        text-align: center;
+        color: #eee;
+        font-weight: bolder;
+        cursor: pointer;
+        border-right: .1rem solid #d2caca;
+    }
+
+    .add_tab:hover {
+        background-color: #8a898996;
+    }
+
+    .top {
+        height: 2rem;
+        background-color: #4a4949;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+        padding-right: 0;
+        cursor: default;
+    }
+
+    .options {
+        height: 90%;
+        width: 40%;
+        justify-content: flex-end;
+        display: flex;
+
+        align-items: center;
+    }
+
+    .options div {
+        color: #eee;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .close:hover {
+        background-color: #9a072b;
+    }
+    
+    .maximize, .minimize, .close {
+        width: 3rem;
+        height: 118%;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .maximize:hover, .minimize:hover {
+        background-color: #111d;
+    }
+
+    .close {
+        border-right: none;
+    }
+
+    .maximize {
+        border: none;
+
+        .square {
+            width: 10%;
+            height: 10%;
+            outline: .01rem solid #eee;
+        }
+    }
+
+
+    .content {
+        background-color: #261622;
+        color: #cab5aa;
+        overflow-y: scroll;
+        scrollbar-color: #261622 #eee;
+        scrollbar-width: none;
+          scrollbar-gutter: stable both-edges;
+    }
+    
+    .content:hover {
+        scrollbar-width: thin;
+    }
+
+    .neo-info {
+        display: flex;
+        flex-wrap: center;
+        justify-content: center;
+        gap: 2rem;
+
+        img {
+            height: 20rem;
+            width: 20rem;
+            object-fit: contain;
+        }
+
+        figcaption {
+            color: #cab5aa;
+
+            ul {
+                all: unset;
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+
+                li {
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+                    text-align: start;
+
+                    b {
+                        font-weight: bolder;
+                        color: #ffdbbd;
+                    }
+                }
+            }
+        }
+    }
+
+    .skills-info  {
+        margin: 1rem auto;
+        display: flex;
+        flex-direction: column;
+        border: .1rem solid #ffdbbd;
+        width: 80%;
+        padding: 0;
+
+        li {
+            all: unset;
+            margin: 0;
+            border-right: .1rem solid #ffdbbd;
+            border-bottom: .1rem solid #ffdbbd;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+
+    .skills-info__td {
+        display: inline-block;
+        width: 20%;
+        font-weight: bolder;
+        color: #eee;
+        border-right: .1rem solid #ffdbbd;
+        height: 100%;
+        padding: 1rem;
+    
+    }
+</style>

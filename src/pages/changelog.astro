@@ -1,0 +1,97 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import v0_0 from '../assets/v0_0.gif'
+import Arkirus from '../assets/arkirus.gif'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="initial">
+				arkirus v1.0
+			</section>
+			<section class="changelog">
+				<h3>
+					CHANGELOG
+				</h3>
+
+				<div class="versions">
+					<article class="v1_0">
+						<div class="date">Dec 30 2025</div>
+						<div class="info">
+							<div class="info__version">
+								v1.0
+							</div>
+							<ul class="info_characetristics">
+								<li>Complete rewrite of the portfolio</li>
+								<li>Introduced terminal-inspired identity</li>
+								<li>Clearer structure and navigation</li>
+								<li>Featured projects section</li>
+							</ul>
+							<figure class="preview">
+								<img src={Arkirus.src} alt="first version">
+								<figcaption>version 1.0</figcaption>
+							</figure>
+						</div>
+					</article>
+					<article class="v0_0">
+						<div class="date">Feb 22 2024</div>
+						<div class="info">
+							<div class="info__version">
+								v0.0
+							</div>
+							<ul class="info_characetristics">
+								<li>Initial portfolio version</li>
+								<li>Visual-focused design</li>
+								<li>Less defined structure</li>
+							</ul>
+							<figure class="preview">
+								<img src={v0_0.src} alt="first version">
+								<figcaption>version 0.0</figcaption>
+							</figure>
+						</div>
+					</article>
+				</div>
+
+
+			</section>
+			<section class="end">
+				  © 2025 arkirus · all rights reserved
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+	.changelog {
+		width: 90%;
+		margin: 1rem auto;
+	}
+
+	.preview {
+		width: 100%;
+		display: flex;
+		gap: 1rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		
+		img {
+			width: 50%;
+		}
+	}
+
+	article {
+		display: flex;
+		gap: 1rem;
+	}
+
+
+</style>

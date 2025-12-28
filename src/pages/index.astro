@@ -1,181 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TwSVG from '../assets/tw.svg'
-import GHSVG from '../assets/gh.svg'
-import PreviewOne from '../components/PreviewOne.astro';
-import ZixIcon from '../assets/zix-icon.jpg'
-import AboutMe from '../components/AboutMe.astro'
-import Skills from '../components/Skills.astro'
+import Neofetch from '../components/Neofetch.astro';
+import AboutMe from '../components/AboutMe.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+import BaseHead from '../components/BaseHead.astro';
+import Projects from '../components/Projects.astro';
+import Header from '../components/Header.astro';
+
 ---
 
-<Layout>
-	<main>
-		<section class="presentation">
-			<h1 class="title">Antonio Arias</h1>
-			<p  class="subtitle">FULLSTACK DEVELOPER</p>
-			<div class="social">
-				<a href="https://x.com/arkeazs" class="tw-icon">
-					<img src={TwSVG.src} fetchpriority="high" alt="twitter icon">
-				</a>
-				<a href="https://github.com/arkeasz" class="gh-icon">
-					<img src={GHSVG.src} fetchpriority="high" alt="github icon">
-				</a>
-			</div>
-		</section>
-		<section class="main-skills">
-			<div class="skill-separation">•</div>
-			<div class="main-skill">React</div>
-			<div class="skill-separation">•</div>
-			<div class="main-skill">Web Design</div>
-			<div class="skill-separation">•</div>
-			<div class="main-skill">Rust</div>
-			<div class="skill-separation">•</div>
-			<div class="main-skill">Javascript</div>
-			<div class="skill-separation">•</div>
-		</section>
-		<section class="projects" id="projects">
-			<h2>PROJECTS</h2>
-			<div class="works">
-				<PreviewOne
-					title="ZIX"
-					preview="https://github.com/zix-rs/zix/raw/main/assets/zix.gif"
-					description="zix is a simple and fast alternative to the traditional Unix ls command."
-					tags="rust cli zix"
-					logo="https://avatars.githubusercontent.com/u/194398231?s=200&v=4"
-					details="https://github.com/zix-rs/zix"
-					page="https://zix-rs.github.io/"
-					/>
-					<PreviewOne
-					title="BINGOU"
-					preview="https://github.com/arkeasz/bingou/raw/main/public/image.png"
-					description="A simple and fun Bingo game built with Bun for fast performance and modern web development."
-					tags="WEB REACT TS"
-					logo="https://avatars.githubusercontent.com/u/107225218?v=4"
-					details="https://github.com/arkeasz/bingou"
-					page="https://github.com/arkeasz/bingou"
-				/>
-			</div>
-		</section>
-		<AboutMe />
-		<Skills />
-	</main>
-</Layout>
-
-<style is:global>
-
-	main {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-
-	.main-skills {
-		display: flex;
-		justify-content: space-evenly;
-		width: 100%;
-		border: 1px solid #111, none;
-		cursor: default;
-		margin: 1rem 0;
-		box-shadow: 0px -1px 0px 0px #444, 0px 1px 0px 0px #444;
-		padding: 1rem 0;
-
-
-		&::selection {
-			background: none;
-		}
-
-		.main-skill {
-			font-size: .8rem;
-			height: 100%;
-			display: grid;
-			place-content: center;
-		}
-	}
-
-	.projects {
-		padding: 2rem 0;
-		width: 70%;
-	}
-
-	@media (max-width: 650px) {
-		.projects {
-			width: 94%;
-		}
-	}
-	.works {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-		gap: 1rem;
-		place-items: center;
-		place-content: center;
-		margin: 1rem auto;
-	}
-
-
-	.presentation {
-		display: flex;
-		flex-direction: column;
-		width: calc(70% - 4rem);
-		padding: 5rem 2rem 2rem;
-		justify-content: center;
-		position: relative;
-
-		.title {
-			font-family: "Julius Sans One",sans-serif;
-			font-weight: 400;
-			font-style: normal;
-			color: #ddd;
-			font-size: clamp(1rem, 10vw, 2.5rem);
-			text-align: center;
-			margin: 0;
-		}
-
-		.subtitle {
-			font-family: "Palanquin Dark", sans-serif;
-			font-weight: 400;
-			font-style: normal;
-			color: #FF0079;
-			padding: 1rem;
-			font-size: .8rem;
-			text-align: center;
-		}
-
-		.social {
-			margin: 1rem 0;
-			display: flex;
-			justify-content: center;
-			align-content: center;
-			height: 2rem;
-			gap: .7rem;
-		}
-
-		.social a {
-			height: 100%;
-			display: grid;
-			place-items: center;
-			place-content: center;
-		}
-
-
-		.social a img {
-			width: auto;
-			height: 60%;
-		}
-	}
-	@media (max-width: 650px) {
-		.presentation {
-			width: 98%;
-			padding: 1rem 0;
-		}
-
-	}
-
-	section h2 {
-		color: #ff2d8f;
-		font-family: "Palanquin Dark", sans-serif;
-		font-weight: 400;
-		font-style: normal;
-		padding: .5rem 0;
-		font-size: .9rem
-	}
-</style>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="initial">
+				arkirus v1.0
+			</section>
+			<Neofetch />
+			<AboutMe />
+			<Projects />
+			<section class="end">
+				  © 2025 arkirus · all rights reserved
+			</section>
+		</main>
+	</body>
+</html>

@@ -1,94 +1,43 @@
----
-import Avatar from '../assets/avatar.jpg'
----
-<section class="about-me" id="aboutme">
-    <h2>ABOUT ME</h2>
-    <figure class="avatar">
-        <img src={Avatar.src} alt="">
-    </figure>
-    <article>
-        <p>Hi! I'm Arki, a physics student passionate about programming and system optimization. I specialize in Rust, C, and Python, focusing on CLI tools, performance, and low-level computing.</p>
-        <div class="mark-skills">
-            <figure class="mark-skill">
-                <img src="/mysql.png" alt="js">
-            </figure>
-            <figure class="mark-skill">
-                <img src="/nodejs.png" alt="rs">
-            </figure>
-            <figure class="mark-skill">
-                <img src="/rails.png" alt="md">
-            </figure>
-            <figure class="mark-skill">
-                <img src="/react.png" alt="md">
-            </figure>
-            <figure class="mark-skill">
-                <img src="/rust.png" alt="md">
-            </figure>
-        </div>
-    </article>
+<section id="about">
+    <h2>whoami</h2>
+    <div class="whoami">
+        <p>
+            I’m a frontend / fullstack developer focused on building
+            clear, minimal interfaces and developer-oriented tools.
+            I enjoy understanding how things work under the hood,
+            especially in systems where performance and simplicity matter.
+            Currently working on personal projects and exploring
+            Rust, realtime applications, and UI systems.
+            Outside of coding, I enjoy reading and playing video games.
+            I like experiences that reward curiosity, exploration, and good design, the same things I value when building software.
+        </p>
+        <ul class="links">
+            <li><b>Website: </b><a href="https://arkirus.fun">arkirus.fun</a></li>
+            <li><b>Github: </b><a href="https://github.com/arkeasz">arkeasz</a></li>
+            <li><b>Twitter / X: </b><a href="https://x.com/arkeazs">@arkeazs</a></li>
+            <li><b>Email: </b><a href="mailto:yoarkirus@gmail.com">yoarkirus@gmail.com</a></li>
+        </ul>
+    </div>
 </section>
 
 <style>
-
-	.about-me {
-		width: 70%;
-        display:grid;
-        grid-template-areas:
-        "title img"
-        "content img"
-        "content img";
-        place-items: center;
-        gap: 2rem;
-
-        h2 {
-            justify-self: start;
-        }
-
-        article {
-            width: 100%;
-            grid-area: content;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-direction: column;
-
-            .mark-skills {
-                justify-self: start;
-                align-self: start;
-                display: flex;
-                height: 2rem;
-                gap: .5rem;
-
-                figure {
-                    height: 45%;
-
-                    img {
-                        height: 100%;
-                        width: auto;
-                        object-fit: contain;
-                    }
-                }
-            }
-        }
-        .avatar {
-            height: 10rem;
-            grid-area: img;
-            box-shadow: 0px 0px 12rem .0 rgba(255, 0, 98, 0.667);
-
-            img {
-                height: 100%;
-                object-fit: contain;
-            }
-        }
+    #about {
+        margin: 0 auto;
+        width: 90%;
     }
 
-    @media (max-width: 650px) {
-		.about-me {
-            grid-template-areas:
-            "title title"
-            "img img"
-            "content content";
-			width: 94%;
-		}
-	}
+    .whoami {
+        background-color: #e0d6b4;
+        width: calc(100% - 2.8rem);
+        padding: 1.4rem;
+        line-height: 120%;
+        border-radius: .5rem;
+    }
+
+    .links li {
+        display: flex;
+        gap: .4rem;
+        padding: .3rem 0;
+    }
+    }
 </style>
