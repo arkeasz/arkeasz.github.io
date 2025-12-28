@@ -1,62 +1,55 @@
-# Astro Starter Kit: Blog
+# arkirus.fun
 
-```sh
-npm create astro@latest -- --template blog
-```
+Personal portfolio website.
+<img width="1305" height="664" alt="image" src="https://github.com/user-attachments/assets/a851856c-84b9-4c01-a7ed-f5f3817694ef" />
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This site is treated as a versioned project rather than a static page.
+Each release represents a snapshot of my skills, design decisions, and technical focus at a given time.
 
-Features:
+## Overview
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- Minimalist, content-first design
+- Inspired by terminal / CLI aesthetics
+- Focused on projects rather than buzzwords
+- No unnecessary frameworks or abstractions
 
-## 🚀 Project Structure
+## Philosophy
 
-Inside of your Astro project, you'll see the following folders and files:
+This portfolio is intentionally simple.
 
-```text
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+I prefer:
+- clarity over visual noise
+- explicit structure over hidden magic
+- small, understandable systems over large dependencies
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+The goal is to make both the content and the implementation easy to read.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Tech Stack
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+- Frontend: <Astro / Vue >
+- Styling: <CSS>
+- Hosting: <Github-pages>
+- Tooling: <Vite / npm>
 
-Any static assets, like images, can be placed in the `public/` directory.
 
-## 🧞 Commands
+## Releases
 
-All commands are run from the root of the project, from a terminal:
+This project follows semantic versioning.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **v1.0.0** – Initial public release  
+  Baseline version of the portfolio, defining layout, structure, and visual language.
 
-## 👀 Want to learn more?
+Future releases may include:
+- content updates
+- UI/UX refinements
+- performance improvements
+- experiments and redesigns
+- blog
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 📦 Local Development
 
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+```bash
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+npm install
+npm run dev
