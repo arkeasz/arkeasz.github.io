@@ -1,0 +1,45 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+
+export const prerender = true;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>   
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <meta charset="utf-8" />
+    <title>404 · Not Found</title>
+  </head>
+
+  <body>
+    <p>
+      404 · Page not Found
+      <a href="/">Go Home</a>
+    </p>
+  </body>
+</html>
+
+<style>
+    p {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        min-height: 100vh;
+        background-color: #dad0cd;
+        color: #111;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+
+        a {
+            background-color: #111;
+            color: #dad0cd;
+        }
+    }
+</style>

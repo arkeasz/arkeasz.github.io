@@ -1,0 +1,38 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Initial from '../../components/Initial.astro';
+
+import { getCollection, getEntry } from 'astro:content'
+
+const posts =  (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+        console.log(posts)
+
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+    <body>
+		<Header />
+		<main>
+			<Initial />
+            <h2>My posts</h2>
+            <ul>
+                {
+                    posts.map(post => (
+                        <li><a href={`/blog/${post.id}`}>{post.data.title}</a></li>    
+                    ))
+                }
+            </ul>
+			<section class="end">
+				  © 2026 arkirus · all rights reserved
+			</section>
+		</main>
+	</body>
+</html>

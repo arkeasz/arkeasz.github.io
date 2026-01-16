@@ -1,0 +1,47 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Initial from '../../components/Initial.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  
+  return posts.map(post => ({
+    params: { post: post.id },
+    props: { post },
+  }));
+}
+const { post } = Astro.props;
+if (!post) return Astro.redirect("/404")
+const { Content } = await render(post);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+    <body>
+		<Header />
+		<main>
+			<Initial />
+      <section class="content">
+        <h1>{post.data.title}</h2>
+        <Content/>
+      </section>
+			<section class="end">
+				  © 2026 arkirus · all rights reserved
+			</section>
+		</main>
+	</body>
+</html>
+
+<style>
+  .content {
+    padding: 1rem;
+    width: calc(100% - 2rem);
+    height: 100%;
+  }
+</style>

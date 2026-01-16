@@ -17,6 +17,10 @@ import TableProject from './TableProject.vue';
         {
             name: 'Github',
             url: 'https://github.com/arkeasz/mano'
+        },
+        {
+            name: 'Demo',
+            url: 'https://mano-hzeq.onrender.com/'
         }
     ]"
   />
