@@ -61,6 +61,13 @@ import Initial from '../components/Initial.astro';
 
 
 			</section>
+			<section class="log" id="log">
+				<div id="close"></div>
+				<figure>
+					<img src="" alt="">
+					<figcaption></figcaption>
+				</figure>
+			</section>
 			<section class="end">
 				  © 2025 arkirus · all rights reserved
 			</section>
@@ -85,6 +92,7 @@ import Initial from '../components/Initial.astro';
 		img {
 			width: 50%;
 			outline: .1rem solid #111;
+			cursor: zoom-in;
 		}
 	}
 
@@ -93,5 +101,78 @@ import Initial from '../components/Initial.astro';
 		gap: 1rem;
 	}
 
+	.log {
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: #111111ba;
+		backdrop-filter: blur(.3rem);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		display: none;
+		visibility; hidden;
 
+		article {
+			padding: 1rem;
+			width: calc(30% - 2rem);
+			background-color: #eee;
+		}
+
+		figure {
+			width: 50%;
+			
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+
+	.open {
+		display: flex;
+		visibility: visible;
+	}
+
+	#close {
+		position: fixed;
+		width: 2rem;
+		height: 2rem;
+		right: 0;
+		top: 0;
+		cursor: pointer;
+		background-color: rgb(212, 54, 54);
+	}
 </style>
+
+<script>
+	const figures = document.querySelectorAll("figure");
+	const log = document.getElementById("log");
+
+	const close = log?.querySelector("#close");
+	const logIMG = log?.querySelector("img");
+
+
+	close?.addEventListener("click", () => {
+		log?.classList.remove("open");
+	});
+
+	logIMG?.addEventListener("click", () => {
+		log?.classList.remove("open");
+	});
+
+	figures.forEach(fig => {
+		fig.addEventListener("click", () => {
+			const figIMG = fig.querySelector("img");
+			if (!figIMG) return;
+			if (!logIMG) return;
+			logIMG.src = figIMG.src;
+			log?.classList.add("open");
+		});
+	});
+
+
+</script>

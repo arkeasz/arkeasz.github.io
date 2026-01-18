@@ -22,17 +22,79 @@ const posts =  (await getCollection('blog')).sort(
 		<Header />
 		<main>
 			<Initial />
-            <h2>My posts</h2>
-            <ul>
-                {
-                    posts.map(post => (
-                        <li><a href={`/blog/${post.id}`}>{post.data.title}</a></li>    
-                    ))
-                }
-            </ul>
+            <section class="posts">
+                <h2>My posts</h2>
+                <ul>
+                    {
+                        posts.filter(post => post.data.pub).map(post => (
+                            <li>
+                                <a href={`/blog/${post.id}`}>
+                                    {post.data.title}
+                                </a>
+                                <p class="description">
+                                    {post.data.description}
+                                </p>
+                                <p class="date">
+                                    {
+                                        new Date(post.data.pubDate).getDate().toString() + 
+                                        '/' + 
+                                        new Date(post.data.pubDate).getMonth() + 1 +
+                                        '/' + 
+                                        new Date(post.data.pubDate).getFullYear()
+                                    }
+                                </p>
+                            </li>    
+                        ))
+                    }
+                </ul>
+            </section>
 			<section class="end">
 				  © 2026 arkirus · all rights reserved
 			</section>
 		</main>
 	</body>
 </html>
+
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .posts {
+        padding: 1rem;
+        width: calc(100% - 2rem);
+        min-height: calc(80vh - 2rem);
+        margin: 0;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: .5rem;
+
+    }
+
+    li {
+        padding: 1rem;
+        background-color: rgba(217, 216, 216, 0.46);
+        display: grid;
+        /* justify-content: space-between; */
+        /* align-items: flex-start; */
+        gap: .56rem;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+        display: inline;
+    }
+
+    .description {
+        justify-self: start;
+    }
+    .date {
+        justify-self: end;
+    }
+</style>
