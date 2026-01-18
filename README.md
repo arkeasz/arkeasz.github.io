@@ -46,10 +46,10 @@ Future releases may include:
 - experiments and redesigns
 - blog
 
-## 📦 Local Development
+## Local Development
 
 ```bash
-git clone https://github.com/your-username/portfolio.git
-cd portfolio
+git clone https://github.com/arkeasz/arkeasz.github.io.git
+cd arkeasz.github.io
 npm install
 npm run dev
