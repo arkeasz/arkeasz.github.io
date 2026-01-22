@@ -21,7 +21,13 @@ const { Content } = await render(post);
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead 
+      title={post.data.title}
+      description={post.data.description} 
+      type='article'
+      publishedAt={post.data.pubDate}
+      imageUrl={post.data.heroImage}
+    />
 	</head>
     <body>
 		<Header />

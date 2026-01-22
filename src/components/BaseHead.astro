@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
+import type { ImageFunction } from 'astro:content';
 
 /**
  * Head / SEO base for Astro pages
@@ -18,15 +19,38 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
-	publishedAt?: string;
+	publishedAt?: Date;
 	author?: string;
 	type?: string;
 	robots?: string;
+	imageUrl?: ImageMetadata;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-const { title, description, image = FallbackImage, publishedAt, author = 'arki', type = 'website', robots = 'index, follow' } = Astro.props as Props;
+const { title, description, image = FallbackImage, imageUrl="#", publishedAt, author = 'arki', type = 'website', robots = 'index, follow' } = Astro.props as Props;
 
+const jsonLd = type === 'article' ? {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": canonicalURL
+	},
+	"headline": title,
+	"image": [imageUrl],
+	"datePublished": publishedAt || undefined,
+	"author": author ? { "@type": "Person", "name": author } : undefined,
+		"description": description
+	} : {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	"url": canonicalURL,
+	"name": title,
+	"description": description,
+	"inLanguage": Astro.request.headers.get('accept-language')?.split(',')?.[0] || 'es'
+};
+
+let yesi = JSON.stringify(jsonLd)
 ---
 
 <!-- Global Metadata -->
@@ -40,7 +64,12 @@ const { title, description, image = FallbackImage, publishedAt, author = 'arki',
 	title={title}
 	href={new URL('rss.xml', Astro.site)}
 /> 
+<link rel="alternate" type="application/rss+xml" title={title} href={new URL('rss.xml', Astro.site)} />
 <meta name="generator" content={Astro.generator} />
+
+<!-- Preconnects -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href={Astro.site} />
 
 <!-- Font preloads -->
 <link rel="preload" href="/fonts/CourierPrime-Bold.ttf" as="font" type="font/ttf" crossorigin />
@@ -55,7 +84,7 @@ const { title, description, image = FallbackImage, publishedAt, author = 'arki',
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
@@ -68,3 +97,6 @@ const { title, description, image = FallbackImage, publishedAt, author = 'arki',
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:author" content="@arkeasz" />
+
+<!-- Structured Data -->
+<script is:inline type="application/ld+json">{yesi}</script>
