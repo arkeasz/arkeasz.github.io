@@ -176,7 +176,7 @@
         }
 
         .content.exist {
-            width: calc(100%-0.2rem);
+            width: calc(100% - 0.2rem);
         }
     }
 </style>

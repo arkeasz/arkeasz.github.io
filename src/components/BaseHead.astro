@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css'
 import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import type { ImageFunction } from 'astro:content';
 
 /**
  * Head / SEO base for Astro pages
@@ -29,28 +28,30 @@ interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 const { title, description, image = FallbackImage, imageUrl="#", publishedAt, author = 'arki', type = 'website', robots = 'index, follow' } = Astro.props as Props;
 
-const jsonLd = type === 'article' ? {
-	"@context": "https://schema.org",
-	"@type": "Article",
-	"mainEntityOfPage": {
-		"@type": "WebPage",
-		"@id": canonicalURL
-	},
-	"headline": title,
-	"image": [imageUrl],
-	"datePublished": publishedAt || undefined,
-	"author": author ? { "@type": "Person", "name": author } : undefined,
+const jsonLd = type === 'article' ? 
+	{
+		"@context": "https://schema.org",
+		"@type": "Article",
+		"mainEntityOfPage": {
+			"@type": "WebPage",
+			"@id": canonicalURL
+		},
+		"headline": title,
+		"image": [imageUrl],
+		"datePublished": publishedAt || undefined,
+		"author": author ? { "@type": "Person", "name": author } : undefined,
 		"description": description
-	} : {
-	"@context": "https://schema.org",
-	"@type": "WebPage",
-	"url": canonicalURL,
-	"name": title,
-	"description": description,
-	"inLanguage": Astro.request.headers.get('accept-language')?.split(',')?.[0] || 'es'
-};
+	} :
+	{
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		"url": canonicalURL,
+		"name": title,
+		"description": description,
+		"inLanguage": "en"
+	};
 
-let yesi = JSON.stringify(jsonLd)
+const yesi = JSON.stringify(jsonLd)
 ---
 
 <!-- Global Metadata -->
@@ -58,12 +59,6 @@ let yesi = JSON.stringify(jsonLd)
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
- <link
-	rel="alternate"
-	type="application/rss+xml"
-	title={title}
-	href={new URL('rss.xml', Astro.site)}
-/> 
 <link rel="alternate" type="application/rss+xml" title={title} href={new URL('rss.xml', Astro.site)} />
 <meta name="generator" content={Astro.generator} />
 
@@ -99,4 +94,4 @@ let yesi = JSON.stringify(jsonLd)
 <meta property="twitter:author" content="@arkeasz" />
 
 <!-- Structured Data -->
-<script is:inline type="application/ld+json">{yesi}</script>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
